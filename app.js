@@ -59,6 +59,9 @@ ws.on('connection',function(socket){
   socket.on('sendSpeak',function(msg){
     socket.emit('getAllSpeak',msg);
   });
+  socket.on('checkHeartBeat', function(msg) {
+    socket.emit('getHeartBeat');
+  })
 })
 module.exports = app;
 
