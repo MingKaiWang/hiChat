@@ -1,6 +1,8 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
+var http = require('http');
+var io =require('socket.io')
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -42,6 +44,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
 //监听端口为3000
 var server = app.listen(3000, function () {
     var host = server.address().address;
@@ -49,7 +52,14 @@ var server = app.listen(3000, function () {
 
     console.log('Example app listening at http://%s:%s', host, port);
 });
+var ws = io.listen(server);
 
+// 业务逻辑
+ws.on('connection',function(socket){
+  socket.on('sendSpeak',function(msg){
+    socket.emit('getAllSpeak',msg);
+  });
+})
 module.exports = app;
 
 

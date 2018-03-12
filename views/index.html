@@ -2,10 +2,21 @@
 <html>
 <head>
 	<title>hiChat</title>
-	<script src="./socket.io/socket.io.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap-grid.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
 </head>
 <body>
-	<button id='start'>开启socket</button>
+	<div class='chatWrap'>
+		<div class='allSpeak'>
+			<ul id='speakList'></ul>
+		</div>
+		<div class='mySpeak'>
+			<textarea id='inputMySpeak'></textarea>
+			<button id='start'>发言</button>
+		</div>
+	</div>
 </body>
+<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js'></script>
+<script src="https://cdn.bootcss.com/socket.io/2.0.4/socket.io.js"></script>
 <script src="./javascripts/index.js"></script>
 </html>
