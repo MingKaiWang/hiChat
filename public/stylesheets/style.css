@@ -21,6 +21,9 @@ a {
 .allSpeak {
 	height: 350px;
 }
+#speakList {
+	list-style: none
+}
 .mySpeak {
 	flex: 1;
 	display: flex;
